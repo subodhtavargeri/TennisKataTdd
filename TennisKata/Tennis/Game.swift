@@ -24,6 +24,10 @@ struct Player {
                 return score
             }
             if self.score == .fifteen {
+                score = .thirty
+                return score
+            }
+            if self.score == .thirty {
                 score = .forty
                 return score
             }
