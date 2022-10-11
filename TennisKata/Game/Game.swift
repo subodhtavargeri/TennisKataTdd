@@ -20,7 +20,7 @@ class Game {
         return self.playerOne.score
     }
     
-    func getPlayerPlayerTwoCurrentScore() -> Score {
+    func getPlayerTwoCurrentScore() -> Score {
         return self.playerTwo.score
     }
 }

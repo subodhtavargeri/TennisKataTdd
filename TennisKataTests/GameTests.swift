@@ -8,7 +8,7 @@ class GameTests: XCTestCase {
         let game = Game()
         
         XCTAssertEqual(Score.zero, game.getPlayerOneCurrentScore())
-        XCTAssertEqual(Score.zero, game.getPlayerPlayerTwoCurrentScore())
+        XCTAssertEqual(Score.zero, game.getPlayerTwoCurrentScore())
     }
     
     func test_WhenPlayerOneScores_FirstPoint() {
