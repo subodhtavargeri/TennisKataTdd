@@ -1,7 +1,7 @@
 class Game {
     
-    var playerOne: Player
-    var playerTwo: Player
+    private var playerOne: Player
+    private var playerTwo: Player
     
     init() {
         self.playerOne = Player(score: .zero)
