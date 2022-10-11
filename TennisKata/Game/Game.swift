@@ -8,11 +8,11 @@ class Game {
         self.playerTwo = Player(score: .zero)
     }
     
-    func getPlayerOneScore() -> Score {
+    func getPlayerOneNextScore() -> Score {
         return self.playerOne.calcluateScore
     }
     
-    func getPlayerTwoScore() -> Score {
+    func getPlayerTwoNextScore() -> Score {
         return self.playerTwo.calcluateScore
     }
     
