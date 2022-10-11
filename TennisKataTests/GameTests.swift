@@ -26,5 +26,16 @@ class GameTests: XCTestCase {
         let expectedScore = game.getPlayerOneScore()
         XCTAssertEqual(Score.thirty, expectedScore)
     }
+    
+    func test_WhenPlayerOneScores_ThirdPoint() {
+        let game = Game()
+        
+        let _ = game.getPlayerOneScore()
+        let _ = game.getPlayerOneScore()
+        
+        let expectedScore = game.getPlayerOneScore()
+        XCTAssertEqual(Score.forty, expectedScore)
+    }
+
 
 }
