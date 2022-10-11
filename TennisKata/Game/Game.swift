@@ -46,6 +46,10 @@ struct Player {
                 score = .advantage
                 return score
             }
+            if self.score == .advantage {
+                score = .forty
+                return score
+            }
             return score
         }
     }
