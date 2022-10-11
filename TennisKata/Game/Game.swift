@@ -15,6 +15,7 @@ class Game {
     func getPlayerTwoScore() -> Score {
         return self.playerTwo.calcluateScore
     }
+    
 }
 
 struct Player {

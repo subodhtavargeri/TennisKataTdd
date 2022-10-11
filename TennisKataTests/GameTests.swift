@@ -47,5 +47,23 @@ class GameTests: XCTestCase {
         let expectedScore = game.getPlayerOneScore()
         XCTAssertEqual(Score.advantage, expectedScore)
     }
+    
+    func test_WhenPlayerTwoeScores_FirstPoint() {
+        let game = Game()
+        
+        let expectedScore = game.getPlayerTwoScore()
+        XCTAssertEqual(Score.fifteen, expectedScore)
+    }
+    
+    func test_WhenPlayerTwoScores_FourthPoint_AdvancePoint() {
+        let game = Game()
+        
+        let _ = game.getPlayerTwoScore()
+        let _ = game.getPlayerTwoScore()
+        let _ = game.getPlayerTwoScore()
+        
+        let expectedScore = game.getPlayerTwoScore()
+        XCTAssertEqual(Score.advantage, expectedScore)
+    }
 
 }
