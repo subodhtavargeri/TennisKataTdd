@@ -7,8 +7,8 @@ class GameTests: XCTestCase {
     func test_BothPlayersOnZero_WhenGameIsInitialized() {
         let game = Game()
         
-        XCTAssertEqual(Score.zero, game.getPlayerOneScore())
-        XCTAssertEqual(Score.zero, game.getPlayerOneScore())
+        XCTAssertEqual(Score.zero, game.getPlayerOneCurrentScore())
+        XCTAssertEqual(Score.zero, game.getPlayerPlayerTwoCurrentScore())
     }
     
     func test_WhenPlayerOneScores_FirstPoint() {
@@ -36,7 +36,7 @@ class GameTests: XCTestCase {
         let expectedScore = game.getPlayerOneScore()
         XCTAssertEqual(Score.forty, expectedScore)
     }
-
+    
     func test_WhenPlayerOneScores_FourthPoint_AdvancePoint() {
         let game = Game()
         
@@ -65,5 +65,5 @@ class GameTests: XCTestCase {
         let expectedScore = game.getPlayerTwoScore()
         XCTAssertEqual(Score.advantage, expectedScore)
     }
-
+    
 }

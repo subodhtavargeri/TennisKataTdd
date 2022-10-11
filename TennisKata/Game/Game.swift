@@ -16,6 +16,13 @@ class Game {
         return self.playerTwo.calcluateScore
     }
     
+    func getPlayerOneCurrentScore() -> Score {
+        return self.playerOne.score
+    }
+    
+    func getPlayerPlayerTwoCurrentScore() -> Score {
+        return self.playerTwo.score
+    }
 }
 
 struct Player {
