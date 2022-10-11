@@ -1,8 +1,13 @@
+//
+//  TestXCTest.swift
+//  TennisKataTests
+//
+//  Created by Subodh Tavargeri on 11/10/22.
+//
 
 import XCTest
-@testable import TennisKata
 
-class TennisKataTests: XCTestCase {
+class TestXCTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
