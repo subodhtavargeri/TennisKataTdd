@@ -1,4 +1,9 @@
-class Game {
+
+protocol GameProtocol {
+    func getPlayerOneCurrentScore() -> Score
+    func getPlayerTwoCurrentScore() -> Score
+}
+class Game: GameProtocol {
     
     private var playerOne: Player
     private var playerTwo: Player
@@ -55,10 +60,10 @@ struct Player {
     }
 }
 
-enum Score {
-    case zero
-    case fifteen
-    case thirty
-    case forty
-    case advantage
+enum Score: String {
+    case zero = "0"
+    case fifteen = "15"
+    case thirty = "30"
+    case forty = "40"
+    case advantage = "Advantage"
 }
