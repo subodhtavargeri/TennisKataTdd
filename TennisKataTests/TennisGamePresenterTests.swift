@@ -5,7 +5,8 @@ class TennisGamePresenterTests: XCTestCase {
     
     func test_WhenPresenterIsLoaded_ViewTitleIsSet() {
         let view = TennisViewControllerSpy()
-        let presenter = TennisGamePresenter(view: view)
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
         
         presenter.displayViewTitle()
         
@@ -13,4 +14,11 @@ class TennisGamePresenterTests: XCTestCase {
         XCTAssertEqual(view.title,expectation)
     }
     
+    func test_WhenGameStarts_PlayerOneScoreIsZero() {
+        let view = TennisViewControllerSpy()
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        
+        XCTAssertEqual(presenter.displayPlayerOneScore(), Score.zero)
+    }
 }
