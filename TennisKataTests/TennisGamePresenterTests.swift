@@ -23,7 +23,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenGameStarts_PlayerTwoScoreIsZero() {
-        let expectation = presenter?.displayPlayerOneScore()
+        let expectation = presenter?.displayPlayerTwoScore()
         XCTAssertEqual(expectation, Score.zero)
     }
 }
