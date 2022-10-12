@@ -70,4 +70,30 @@ class TennisGamePresenterTests: XCTestCase {
         let expectation = Score.thirty.rawValue
         XCTAssertEqual(score, expectation)
     }
+    
+    func test_WhenPlayerOne_WinsThirdPoint() {
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        var score:String?
+        
+        for _ in 1...3 {
+            score = presenter.playerOneWinsPoint()
+        }
+        
+        let expectation = Score.forty.rawValue
+        XCTAssertEqual(score, expectation)
+    }
+    
+    func test_WhenPlayerTwo_WinsThirdPoint() {
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        var score:String?
+        
+        for _ in 1...3 {
+            score = presenter.playerTwoWinsPoint()
+        }
+        
+        let expectation = Score.forty.rawValue
+        XCTAssertEqual(score, expectation)
+    }
 }
