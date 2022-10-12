@@ -2,6 +2,8 @@
 protocol GameProtocol {
     func getPlayerOneCurrentScore() -> Score
     func getPlayerTwoCurrentScore() -> Score
+    func getPlayerTwoNewScore() -> Score
+    func getPlayerOneNewScore() -> Score
 }
 class Game: GameProtocol {
     
