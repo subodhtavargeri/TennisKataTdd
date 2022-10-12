@@ -14,7 +14,7 @@ class GameSpy: GameProtocol {
     }
     
     func getPlayerTwoCurrentScore() -> Score {
-        return playerOne.score
+        return playerTwo.score
         
     }
     
