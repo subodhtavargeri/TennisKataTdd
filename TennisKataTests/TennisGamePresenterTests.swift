@@ -2,31 +2,28 @@ import XCTest
 @testable import TennisKata
 
 class TennisGamePresenterTests: XCTestCase {
+    let view = TennisViewControllerSpy()
+    let game = GameSpy()
+    var presenter: TennisGamePresenter?
+    
+    override func setUp() {
+        presenter = TennisGamePresenter(view: view, game: game)
+    }
     
     func test_WhenPresenterIsLoaded_ViewTitleIsSet() {
-        let view = TennisViewControllerSpy()
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
-        
-        presenter.displayViewTitle()
+        presenter?.displayViewTitle()
         
         let expectation = "Tennis Scoreboard"
         XCTAssertEqual(view.title,expectation)
     }
     
     func test_WhenGameStarts_PlayerOneScoreIsZero() {
-        let view = TennisViewControllerSpy()
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
-        
-        XCTAssertEqual(presenter.displayPlayerOneScore(), Score.zero)
+        let expectation = presenter?.displayPlayerOneScore()
+        XCTAssertEqual(expectation, Score.zero)
     }
     
     func test_WhenGameStarts_PlayerTwoScoreIsZero() {
-        let view = TennisViewControllerSpy()
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
-        
-        XCTAssertEqual(presenter.displayPlayerTwoScore(), Score.zero)
+        let expectation = presenter?.displayPlayerOneScore()
+        XCTAssertEqual(expectation, Score.zero)
     }
 }
