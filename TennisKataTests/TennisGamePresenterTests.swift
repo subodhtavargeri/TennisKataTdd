@@ -21,4 +21,12 @@ class TennisGamePresenterTests: XCTestCase {
         
         XCTAssertEqual(presenter.displayPlayerOneScore(), Score.zero)
     }
+    
+    func test_WhenGameStarts_PlayerTwoScoreIsZero() {
+        let view = TennisViewControllerSpy()
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        
+        XCTAssertEqual(presenter.displayPlayerTwoScore(), Score.zero)
+    }
 }

@@ -23,4 +23,8 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
         return game.getPlayerOneCurrentScore()
     }
     
+    func displayPlayerTwoScore() -> Score {
+        return game.getPlayerTwoCurrentScore()
+    }
+    
 }
