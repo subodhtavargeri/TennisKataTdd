@@ -19,12 +19,12 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
         view.displayViewTitle(title: "Tennis Scoreboard")
     }
     
-    func displayPlayerOneScore() -> Score {
-        return game.getPlayerOneCurrentScore()
+    func displayPlayerOneScore() -> String {
+        return game.getPlayerOneCurrentScore().rawValue
     }
     
-    func displayPlayerTwoScore() -> Score {
-        return game.getPlayerTwoCurrentScore()
+    func displayPlayerTwoScore() -> String {
+        return game.getPlayerTwoCurrentScore().rawValue
     }
     
 }
