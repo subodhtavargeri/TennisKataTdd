@@ -27,13 +27,16 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     }
     
     func playerOneWinsPoint()-> String {
-        let score = game.getPlayerOneNewScore()
-        return score.rawValue
+        if game.getPlayerTwoCurrentScore() != Score.forty {
+            let score = game.getPlayerOneNewScore()
+            return score.rawValue
+        }
+        return "PlayerOne Wins Game!!!"
     }
     
     func playerTwoWinsPoint()-> String {
         let score = game.getPlayerTwoNewScore()
         return score.rawValue
     }
-    
+
 }
