@@ -63,7 +63,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsSecondPoint() {
-
+        
         var score:String?
         
         for _ in 1...2 {
@@ -87,7 +87,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsThirdPoint() {
-      
+        
         var score:String?
         
         for _ in 1...3 {
@@ -99,7 +99,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsGame() {
-
+        
         var score:String?
         
         for _ in 1...4 {
@@ -139,7 +139,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerTwoIsShownAsDuce() {
-
+        
         for _ in 1...3 {
             _ = presenter.playerOneWinsPoint()
         }
@@ -154,4 +154,37 @@ class TennisGamePresenterTests: XCTestCase {
         XCTAssertEqual(playerTwoScore,expectation)
     }
     
+    func test_WhenPlayerOneAndPlayerTwoAreOnDeuce_PlayerOneWinsNextPoint_PlayerOneScoreShouldBeAdvantage() {
+        
+        for _ in 1...3 {
+            _ = presenter.playerTwoWinsPoint()
+        }
+        
+        var playerOneScore:String?
+        
+        for _ in 1...3 {
+            playerOneScore = presenter.playerOneWinsPoint()
+        }
+        
+        playerOneScore = presenter.playerOneWinsPoint()
+        
+        let expectation = Score.advantage.rawValue
+        XCTAssertEqual(playerOneScore,expectation)
+    }
+    
+    func test_WhenPlayerOneAndPlayerTwoAreOnDeuce_PlayerTwoWinsNextPoint_PlayerTwoScoreShouldBeAdvantage() {
+    
+        for _ in 1...3 {
+            _ = presenter.playerOneWinsPoint()
+        }
+        var playerTwoScore:String?
+        for _ in 1...3 {
+            playerTwoScore = presenter.playerTwoWinsPoint()
+        }
+        
+        playerTwoScore = presenter.playerTwoWinsPoint()
+        
+        let expectation = Score.advantage.rawValue
+        XCTAssertEqual(playerTwoScore,expectation)
+    }
 }

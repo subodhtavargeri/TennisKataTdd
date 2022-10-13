@@ -44,6 +44,12 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
             
             return score.rawValue
         }
+        
+        if(checkForDucePoint()) {
+            let score = game.getPlayerOneNewScore()
+            return score.rawValue
+        }
+        
         return "PlayerOne Wins Game!!!"
     }
     
@@ -64,6 +70,12 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
             
             return score.rawValue
         }
+        
+        if(checkForDucePoint()) {
+            let score = game.getPlayerOneNewScore()
+            return score.rawValue
+        }
+        
         return "PlayerTwo Wins Game!!!"
     }
 }
