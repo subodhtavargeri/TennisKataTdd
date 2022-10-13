@@ -3,7 +3,7 @@ protocol GameProtocol {
     func getPlayerOneCurrentScore() -> Score
     func getPlayerTwoCurrentScore() -> Score
     func updatePlayerTwoScore() -> Score
-    func updatePlayerOneScore() -> Score
+    func updatePlayerOneScore() -> String
 }
 class Game: GameProtocol {
     
@@ -15,8 +15,30 @@ class Game: GameProtocol {
         self.playerTwo = Player(score: .zero)
     }
     
-    func updatePlayerOneScore() -> Score {
-        return self.playerOne.calcluateScore
+    func updatePlayerOneScore() -> String {
+        if playerOne.score != Score.forty && playerOne.score != Score.advantage {
+            let score = playerOne.calcluateScore
+            
+            if(checkForDucePoint()) {
+                return "Deuce"
+            }
+            
+            return score.rawValue
+        }
+        
+        if(checkForDucePoint()) {
+            let score = playerOne.calcluateScore
+            return score.rawValue
+        }
+        
+        return "PlayerOne Wins Game!!!"
+    }
+    
+    func checkForDucePoint() -> Bool {
+        if playerOne.score == Score.forty && playerTwo.score == Score.forty {
+            return true
+        }
+        return false
     }
     
     func updatePlayerTwoScore() -> Score {

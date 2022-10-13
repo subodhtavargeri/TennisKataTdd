@@ -1,6 +1,7 @@
 @testable import TennisKata
 
 class GameSpy: GameProtocol {
+    
     private var playerOne: Player
     private var playerTwo: Player
     
@@ -18,8 +19,8 @@ class GameSpy: GameProtocol {
         
     }
     
-    func updatePlayerOneScore() -> Score {
-        return playerOne.calcluateScore
+    func updatePlayerOneScore() -> String {
+        return playerOne.calcluateScore.rawValue
     }
     
     func updatePlayerTwoScore() -> Score {
