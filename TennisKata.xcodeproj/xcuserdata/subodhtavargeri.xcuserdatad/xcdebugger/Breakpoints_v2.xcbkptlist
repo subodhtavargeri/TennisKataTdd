@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "test_PlayerTwoWins_WhenPlayerTwoScoreIsOnAdvantage()"
+            landmarkName = "test_PlayerOneWins_WhenPlayerOneScoreIsOnAdvantage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -61,7 +61,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(Score.fifteen, expectedScore)
     }
     
-    func test_PlayerTwoScoresAdvantage_WhneGameisOnDeuce() {
+    func test_PlayerOneScoreAdvantage_WhenPlayerOneScorePlayerTwoScoreAreSame() {
         let game = Game()
         
         let _ = game.updatePlayerTwoScore()
@@ -72,9 +72,9 @@ class GameTests: XCTestCase {
         let _ = game.updatePlayerOneScore()
         let _ = game.updatePlayerOneScore()
         
-        let originalScore = game.updatePlayerTwoScore()
+        let originalScore = game.updatePlayerOneScore()
         
-        let expectedScore = Score.advantage
+        let expectedScore = Score.advantage.rawValue
         XCTAssertEqual(originalScore, expectedScore)
     }
     
