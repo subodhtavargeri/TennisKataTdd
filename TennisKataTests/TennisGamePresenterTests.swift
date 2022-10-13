@@ -122,4 +122,22 @@ class TennisGamePresenterTests: XCTestCase {
         let expectation = "PlayerTwo Wins Game!!!"
         XCTAssertEqual(score, expectation)
     }
+    
+    func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerOneIsShownAsDuce() {
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        
+        for _ in 1...3 {
+            _ = presenter.playerTwoWinsPoint()
+        }
+        
+        var playerOneScore:String?
+        
+        for _ in 1...3 {
+            playerOneScore = presenter.playerOneWinsPoint()
+        }
+        
+        let expectation = "Deuce"
+        XCTAssertEqual(playerOneScore,expectation)
+    }
 }

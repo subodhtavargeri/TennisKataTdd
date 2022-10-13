@@ -29,9 +29,20 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     func playerOneWinsPoint()-> String {
         if game.getPlayerOneCurrentScore() != Score.forty {
             let score = game.getPlayerOneNewScore()
+            
+            if(checkForDucePoint()) {
+                return "Deuce"
+            }
             return score.rawValue
         }
         return "PlayerOne Wins Game!!!"
+    }
+    
+    func checkForDucePoint() -> Bool {
+        if game.getPlayerTwoCurrentScore() == Score.forty && game.getPlayerOneCurrentScore() == Score.forty {
+            return true
+        }
+        return false
     }
     
     func playerTwoWinsPoint()-> String {
