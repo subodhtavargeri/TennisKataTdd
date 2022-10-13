@@ -61,6 +61,21 @@ class GameTests: XCTestCase {
         XCTAssertEqual(Score.fifteen, expectedScore)
     }
     
+    func test_PlayerOneScoreIsDeuce_WhenPlayerOneAndPlayerTwoScoreAreFourty() {
+        let game = Game()
+        
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        let originalScore = game.updatePlayerOneScore()
+        
+        let expectedScore = "Deuce"
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
     func test_PlayerOneScoreAdvantage_WhenPlayerOneScorePlayerTwoScoreAreSame() {
         let game = Game()
         
