@@ -23,8 +23,14 @@ class GameSpy: GameProtocol {
         return playerOne.calcluateScore.rawValue
     }
     
-    func updatePlayerTwoScore() -> Score {
-        return playerTwo.calcluateScore
+   
+    func getPlayerOneCurrentScore() -> String {
+        return playerOne.score.rawValue
     }
     
+    func updatePlayerTwoScore() -> String {
+        playerTwo.calcluateScore.rawValue
+    }
+    
+   
 }
