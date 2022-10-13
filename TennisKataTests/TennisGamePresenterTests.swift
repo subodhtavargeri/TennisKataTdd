@@ -3,14 +3,16 @@ import XCTest
 
 class TennisGamePresenterTests: XCTestCase {
     let view = TennisViewControllerSpy()
-    let game = GameSpy()
-    var presenter: TennisGamePresenter?
+    var game: GameSpy!
+    var presenter: TennisGamePresenter!
     
     override func setUp() {
+        game = GameSpy()
         presenter = TennisGamePresenter(view: view, game: game)
     }
     
     func test_WhenPresenterIsLoaded_ViewTitleIsSet() {
+        
         presenter?.loadPresenter()
         
         let expectation = "Tennis Scoreboard"
@@ -25,6 +27,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenGameStarts_PlayerTwoScoreIsZero() {
+        
         presenter?.loadPresenter()
         
         let expectation = Score.zero.rawValue
@@ -32,6 +35,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsFirstPoint() {
+        
         let score = presenter?.playerOneWinsPoint()
         
         let expectation = Score.fifteen.rawValue
@@ -39,6 +43,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsFirstPoint() {
+        
         let score = presenter?.playerTwoWinsPoint()
         
         let expectation = Score.fifteen.rawValue
@@ -46,8 +51,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsSecondPoint() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+        
         var score:String?
         
         for _ in 1...2 {
@@ -59,8 +63,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsSecondPoint() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+
         var score:String?
         
         for _ in 1...2 {
@@ -72,8 +75,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsThirdPoint() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+        
         var score:String?
         
         for _ in 1...3 {
@@ -85,8 +87,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsThirdPoint() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+      
         var score:String?
         
         for _ in 1...3 {
@@ -98,8 +99,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsGame() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+
         var score:String?
         
         for _ in 1...4 {
@@ -111,8 +111,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsGame() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
+        
         var score:String?
         
         for _ in 1...4 {
@@ -124,8 +123,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerOneIsShownAsDuce() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
         
         for _ in 1...3 {
             _ = presenter.playerTwoWinsPoint()
@@ -142,9 +139,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerTwoIsShownAsDuce() {
-        let game = GameSpy()
-        let presenter = TennisGamePresenter(view: view, game: game)
-        
+
         for _ in 1...3 {
             _ = presenter.playerOneWinsPoint()
         }
@@ -158,4 +153,5 @@ class TennisGamePresenterTests: XCTestCase {
         let expectation = "Deuce"
         XCTAssertEqual(playerTwoScore,expectation)
     }
+    
 }
