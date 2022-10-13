@@ -6,14 +6,14 @@ class GameTests: XCTestCase {
     
     var game: Game!
     
-    override func setUp() async throws {
+    override func setUp() {
         game = Game()
     }
     
     func test_BothPlayersOnZero_WhenGameIsInitialized() {
     
         XCTAssertEqual(Score.zero.rawValue, game.getPlayerOneCurrentScore())
-        XCTAssertEqual(Score.zero, game.getPlayerTwoCurrentScore())
+        XCTAssertEqual(Score.zero.rawValue, game.getPlayerTwoCurrentScore())
     }
     
     func test_WhenPlayerOneScores_FirstPoint() {
@@ -175,6 +175,25 @@ class GameTests: XCTestCase {
         XCTAssertEqual(originalScore, expectedScore)
     }
     
+    func test_PlayerTwoLoosesPoint_WhenPlayerTwoIsOnAdvantage() {
+        
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerOneScore()
+        
+        let originalScore = game.getPlayerTwoCurrentScore()
+        
+        let expectedScore = Score.forty.rawValue
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
     func test_WhenPlayerTwoLooses_AdvancePoint() {
         let game = Game()
         
@@ -183,7 +202,7 @@ class GameTests: XCTestCase {
         }
         
         let expectedScore = game.getPlayerTwoCurrentScore()
-        XCTAssertEqual(Score.forty, expectedScore)
+        XCTAssertEqual(Score.forty.rawValue, expectedScore)
     }
     
     func test_WhenPlayerOneLooses_AdvancePoint() {

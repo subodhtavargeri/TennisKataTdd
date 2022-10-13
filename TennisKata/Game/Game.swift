@@ -1,7 +1,7 @@
 
 protocol GameProtocol {
     func getPlayerOneCurrentScore() -> String
-    func getPlayerTwoCurrentScore() -> Score
+    func getPlayerTwoCurrentScore() -> String
     func updatePlayerTwoScore() -> String
     func updatePlayerOneScore() -> String
 }
@@ -31,10 +31,15 @@ class Game: GameProtocol {
             return score.rawValue
         }
         
+        if playerTwo.score == Score.advantage {
+            let _ = playerTwo.calcluateScore
+            return playerOne.score.rawValue
+        }
+        
         return "PlayerOne Wins Game!!!"
     }
     
-    func checkForDucePoint() -> Bool {
+    private func checkForDucePoint() -> Bool {
         if playerOne.score == Score.forty && playerTwo.score == Score.forty {
             return true
         }
@@ -64,8 +69,8 @@ class Game: GameProtocol {
         return self.playerOne.score.rawValue
     }
     
-    func getPlayerTwoCurrentScore() -> Score {
-        return self.playerTwo.score
+    func getPlayerTwoCurrentScore() -> String {
+        return self.playerTwo.score.rawValue
     }
 }
 
