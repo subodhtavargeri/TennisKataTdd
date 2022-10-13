@@ -14,55 +14,55 @@ class GameTests: XCTestCase {
     func test_WhenPlayerOneScores_FirstPoint() {
         let game = Game()
         
-        let expectedScore = game.getPlayerOneNewScore()
+        let expectedScore = game.updatePlayerOneScore()
         XCTAssertEqual(Score.fifteen, expectedScore)
     }
     
     func test_WhenPlayerOneScores_SecondPoint() {
         let game = Game()
         
-        let _ = game.getPlayerOneNewScore()
+        let _ = game.updatePlayerOneScore()
         
-        let expectedScore = game.getPlayerOneNewScore()
+        let expectedScore = game.updatePlayerOneScore()
         XCTAssertEqual(Score.thirty, expectedScore)
     }
     
     func test_WhenPlayerOneScores_ThirdPoint() {
         let game = Game()
         
-        let _ = game.getPlayerOneNewScore()
-        let _ = game.getPlayerOneNewScore()
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
         
-        let expectedScore = game.getPlayerOneNewScore()
+        let expectedScore = game.updatePlayerOneScore()
         XCTAssertEqual(Score.forty, expectedScore)
     }
     
     func test_WhenPlayerOneScores_FourthPoint_AdvancePoint() {
         let game = Game()
         
-        let _ = game.getPlayerOneNewScore()
-        let _ = game.getPlayerOneNewScore()
-        let _ = game.getPlayerOneNewScore()
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
         
-        let expectedScore = game.getPlayerOneNewScore()
+        let expectedScore = game.updatePlayerOneScore()
         XCTAssertEqual(Score.advantage, expectedScore)
     }
     
     func test_WhenPlayerTwoeScores_FirstPoint() {
         let game = Game()
         
-        let expectedScore = game.getPlayerTwoNewScore()
+        let expectedScore = game.updatePlayerTwoScore()
         XCTAssertEqual(Score.fifteen, expectedScore)
     }
     
     func test_WhenPlayerTwoScores_FourthPoint_AdvancePoint() {
         let game = Game()
         
-        let _ = game.getPlayerTwoNewScore()
-        let _ = game.getPlayerTwoNewScore()
-        let _ = game.getPlayerTwoNewScore()
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
         
-        let expectedScore = game.getPlayerTwoNewScore()
+        let expectedScore = game.updatePlayerTwoScore()
         XCTAssertEqual(Score.advantage, expectedScore)
     }
     
@@ -70,7 +70,7 @@ class GameTests: XCTestCase {
         let game = Game()
         
         for _ in 1...5 {
-            let _ = game.getPlayerTwoNewScore()
+            let _ = game.updatePlayerTwoScore()
         }
         
         let expectedScore = game.getPlayerTwoCurrentScore()
@@ -81,7 +81,7 @@ class GameTests: XCTestCase {
         let game = Game()
         
         for _ in 1...5 {
-            let _ = game.getPlayerOneNewScore()
+            let _ = game.updatePlayerOneScore()
         }
         
         let expectedScore = game.getPlayerOneCurrentScore()

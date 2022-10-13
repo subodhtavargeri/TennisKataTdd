@@ -18,11 +18,11 @@ class GameSpy: GameProtocol {
         
     }
     
-    func getPlayerOneNewScore() -> Score {
+    func updatePlayerOneScore() -> Score {
         return playerOne.calcluateScore
     }
     
-    func getPlayerTwoNewScore() -> Score {
+    func updatePlayerTwoScore() -> Score {
         return playerTwo.calcluateScore
     }
     

@@ -2,8 +2,8 @@
 protocol GameProtocol {
     func getPlayerOneCurrentScore() -> Score
     func getPlayerTwoCurrentScore() -> Score
-    func getPlayerTwoNewScore() -> Score
-    func getPlayerOneNewScore() -> Score
+    func updatePlayerTwoScore() -> Score
+    func updatePlayerOneScore() -> Score
 }
 class Game: GameProtocol {
     
@@ -15,11 +15,11 @@ class Game: GameProtocol {
         self.playerTwo = Player(score: .zero)
     }
     
-    func getPlayerOneNewScore() -> Score {
+    func updatePlayerOneScore() -> Score {
         return self.playerOne.calcluateScore
     }
     
-    func getPlayerTwoNewScore() -> Score {
+    func updatePlayerTwoScore() -> Score {
         return self.playerTwo.calcluateScore
     }
     
