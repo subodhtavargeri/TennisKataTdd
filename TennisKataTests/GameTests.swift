@@ -61,7 +61,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(Score.fifteen, expectedScore)
     }
     
-    func test_WhenPlayerTwoScores_FourthPoint_AdvantagePoint() {
+    func test_PlayerTwoScoresAdvantage_WhneGameisOnDeuce() {
         let game = Game()
         
         let _ = game.updatePlayerTwoScore()
