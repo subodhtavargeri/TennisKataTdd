@@ -20,6 +20,7 @@
 		5B0ED5A028F58340001EEA91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0ED59E28F58340001EEA91 /* LaunchScreen.storyboard */; };
 		5B0ED5B528F58340001EEA91 /* TennisKataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0ED5B428F58340001EEA91 /* TennisKataUITests.swift */; };
 		5B0ED5B728F58340001EEA91 /* TennisKataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0ED5B628F58340001EEA91 /* TennisKataUITestsLaunchTests.swift */; };
+		5B17DC4028F833130072EEA1 /* TennisKataViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17DC3F28F833130072EEA1 /* TennisKataViewControllerTests.swift */; };
 		5B55FC5228F5921900454839 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55FC5128F5921900454839 /* GameTests.swift */; };
 		5B55FC5528F592CA00454839 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B55FC5428F592CA00454839 /* Game.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		5B0ED5B028F58340001EEA91 /* TennisKataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisKataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0ED5B428F58340001EEA91 /* TennisKataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisKataUITests.swift; sourceTree = "<group>"; };
 		5B0ED5B628F58340001EEA91 /* TennisKataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisKataUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5B17DC3F28F833130072EEA1 /* TennisKataViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisKataViewControllerTests.swift; sourceTree = "<group>"; };
 		5B55FC5128F5921900454839 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		5B55FC5428F592CA00454839 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				5B0B261028F68DCA00DB95CA /* TennisGamePresenterTests.swift */,
 				5B0B261428F690A200DB95CA /* TennisViewControllerSpy.swift */,
 				5B0B261A28F6A1F600DB95CA /* GameSpy.swift */,
+				5B17DC3F28F833130072EEA1 /* TennisKataViewControllerTests.swift */,
 			);
 			path = TennisKataTests;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B17DC4028F833130072EEA1 /* TennisKataViewControllerTests.swift in Sources */,
 				5B55FC5228F5921900454839 /* GameTests.swift in Sources */,
 				5B0B261128F68DCA00DB95CA /* TennisGamePresenterTests.swift in Sources */,
 				5B0B261B28F6A1F600DB95CA /* GameSpy.swift in Sources */,
