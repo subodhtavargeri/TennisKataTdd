@@ -1,7 +1,6 @@
 
 protocol TennisGamePresenterProtocol {
     func loadPresenter()
-    
 }
 
 class TennisGamePresenter: TennisGamePresenterProtocol {
@@ -17,18 +16,22 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     
     func loadPresenter() {
         displayViewTitle()
+        displayPlayerOneScore()
+        displayPlayerTwoScore()
     }
     
     private func displayViewTitle() {
         view.displayViewTitle(title: "Tennis Scoreboard")
     }
     
-    func displayPlayerOneScore()-> String {
-        return game.getPlayerOneCurrentScore().rawValue
+    private func displayPlayerOneScore() {
+        let playerOneScore = game.getPlayerOneCurrentScore().rawValue
+        view.displayPlayerOneScore(score: playerOneScore)
     }
     
-    func displayPlayerTwoScore()-> String {
-        return game.getPlayerTwoCurrentScore().rawValue
+    func displayPlayerTwoScore() {
+        let playerTwoScore = game.getPlayerTwoCurrentScore().rawValue
+        view.displayPlayerOneScore(score: playerTwoScore)
     }
     
     func playerOneWinsPoint()-> String {

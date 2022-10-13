@@ -18,17 +18,17 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenGameStarts_PlayerOneScoreIsZero() {
-        let score = presenter?.displayPlayerOneScore()
+        presenter?.loadPresenter()
         
         let expectation = Score.zero.rawValue
-        XCTAssertEqual(score, expectation)
+        XCTAssertEqual(view.score, expectation)
     }
     
     func test_WhenGameStarts_PlayerTwoScoreIsZero() {
-        let score = presenter?.displayPlayerTwoScore()
+        presenter?.loadPresenter()
         
         let expectation = Score.zero.rawValue
-        XCTAssertEqual(score, expectation)
+        XCTAssertEqual(view.score, expectation)
     }
     
     func test_WhenPlayerOne_WinsFirstPoint() {
