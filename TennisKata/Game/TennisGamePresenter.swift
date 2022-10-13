@@ -35,7 +35,7 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     }
     
     func playerOneWinsPoint()-> String {
-        if game.getPlayerOneCurrentScore() != Score.forty {
+        if game.getPlayerOneCurrentScore() != Score.forty && game.getPlayerOneCurrentScore() != Score.advantage {
             let score = game.getPlayerOneNewScore()
             
             if(checkForDucePoint()) {
@@ -61,7 +61,7 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     }
     
     func playerTwoWinsPoint()-> String {
-        if game.getPlayerTwoCurrentScore() != Score.forty {
+        if game.getPlayerTwoCurrentScore() != Score.forty && game.getPlayerTwoCurrentScore() != Score.advantage  {
             let score = game.getPlayerTwoNewScore()
             
             if(checkForDucePoint()) {
@@ -72,7 +72,7 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
         }
         
         if(checkForDucePoint()) {
-            let score = game.getPlayerOneNewScore()
+            let score = game.getPlayerTwoNewScore()
             return score.rawValue
         }
         
