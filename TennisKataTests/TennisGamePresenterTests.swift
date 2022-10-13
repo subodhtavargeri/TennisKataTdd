@@ -12,7 +12,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPresenterIsLoaded_ViewTitleIsSet() {
-        
         presenter?.loadPresenter()
         
         let expectation = "Tennis Scoreboard"
@@ -27,7 +26,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenGameStarts_PlayerTwoScoreIsZero() {
-        
         presenter?.loadPresenter()
         
         let expectation = Score.zero.rawValue
@@ -35,7 +33,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsFirstPoint() {
-        
         let score = presenter?.playerOneWinsPoint()
         
         let expectation = Score.fifteen.rawValue
@@ -43,7 +40,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsFirstPoint() {
-        
         let score = presenter?.playerTwoWinsPoint()
         
         let expectation = Score.fifteen.rawValue
@@ -51,7 +47,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsSecondPoint() {
-        
         var score:String?
         
         for _ in 1...2 {
@@ -63,7 +58,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsSecondPoint() {
-        
         var score:String?
         
         for _ in 1...2 {
@@ -75,7 +69,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsThirdPoint() {
-        
         var score:String?
         
         for _ in 1...3 {
@@ -87,7 +80,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsThirdPoint() {
-        
         var score:String?
         
         for _ in 1...3 {
@@ -99,7 +91,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOne_WinsGame() {
-        
         var score:String?
         
         for _ in 1...4 {
@@ -111,7 +102,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerTwo_WinsGame() {
-        
         var score:String?
         
         for _ in 1...4 {
@@ -123,11 +113,9 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerOneIsShownAsDuce() {
-        
         for _ in 1...3 {
             _ = presenter.playerTwoWinsPoint()
         }
-        
         var playerOneScore:String?
         
         for _ in 1...3 {
@@ -139,11 +127,9 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerTwoIsShownAsDuce() {
-        
         for _ in 1...3 {
             _ = presenter.playerOneWinsPoint()
         }
-        
         var playerTwoScore:String?
         
         for _ in 1...3 {
@@ -155,13 +141,10 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwoAreOnDeuce_PlayerOneWinsNextPoint_PlayerOneScoreShouldBeAdvantage() {
-        
         for _ in 1...3 {
             _ = presenter.playerTwoWinsPoint()
         }
-        
         var playerOneScore:String?
-        
         for _ in 1...3 {
             playerOneScore = presenter.playerOneWinsPoint()
         }
@@ -173,7 +156,6 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPlayerOneAndPlayerTwoAreOnDeuce_PlayerTwoWinsNextPoint_PlayerTwoScoreShouldBeAdvantage() {
-    
         for _ in 1...3 {
             _ = presenter.playerOneWinsPoint()
         }
