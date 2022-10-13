@@ -72,8 +72,28 @@ class GameTests: XCTestCase {
         let _ = game.updatePlayerOneScore()
         let _ = game.updatePlayerOneScore()
         
-        let expectedScore = game.updatePlayerTwoScore()
-        XCTAssertEqual(Score.advantage, expectedScore)
+        let originalScore = game.updatePlayerTwoScore()
+        
+        let expectedScore = Score.advantage
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
+    func test_PlayerOneWins_WhenPlayerOneScoreIsOnAdvantage() {
+        let game = Game()
+        
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        let _ = game.updatePlayerOneScore()
+        
+        let _ = game.updatePlayerOneScore()
+        let originalScore = game.updatePlayerOneScore()
+        
+        let expectedScore = "PlayerOne Wins Game!!!"
+        XCTAssertEqual(originalScore, expectedScore)
     }
     
     func test_WhenPlayerTwoLooses_AdvancePoint() {
