@@ -4,16 +4,20 @@ import XCTest
 
 class GameTests: XCTestCase {
     
+    var game: Game!
+    
+    override func setUp() async throws {
+        game = Game()
+    }
+    
     func test_BothPlayersOnZero_WhenGameIsInitialized() {
-        let game = Game()
-        
+    
         XCTAssertEqual(Score.zero.rawValue, game.getPlayerOneCurrentScore())
         XCTAssertEqual(Score.zero, game.getPlayerTwoCurrentScore())
     }
     
     func test_WhenPlayerOneScores_FirstPoint() {
-        let game = Game()
-        
+
         let originalScore = game.updatePlayerOneScore()
         
         let expectedScore = Score.fifteen.rawValue
@@ -21,8 +25,7 @@ class GameTests: XCTestCase {
     }
     
     func test_WhenPlayerOneScores_SecondPoint() {
-        let game = Game()
-        
+
         let _ = game.updatePlayerOneScore()
         let originalScore = game.updatePlayerOneScore()
         
@@ -31,7 +34,6 @@ class GameTests: XCTestCase {
     }
     
     func test_WhenPlayerOneScores_ThirdPoint() {
-        let game = Game()
         
         let _ = game.updatePlayerOneScore()
         let _ = game.updatePlayerOneScore()
@@ -42,29 +44,17 @@ class GameTests: XCTestCase {
     }
     
     func test_WhenPlayerOneScores_FourthPoint_AdvancePoint() {
-        let game = Game()
         
         let _ = game.updatePlayerOneScore()
         let _ = game.updatePlayerOneScore()
         let _ = game.updatePlayerOneScore()
         let originalScore = game.updatePlayerOneScore()
         
-        
         let expectedScore = "PlayerOne Wins Game!!!"
         XCTAssertEqual(originalScore, expectedScore)
     }
     
-    func test_PlayerTwoScoresFirstPoint() {
-        let game = Game()
-        
-        let originalScore = game.updatePlayerTwoScore()
-        
-        let expectedScore = Score.fifteen.rawValue
-        XCTAssertEqual(originalScore, expectedScore)
-    }
-    
     func test_PlayerOneScoreIsDeuce_WhenPlayerOneAndPlayerTwoScoreAreFourty() {
-        let game = Game()
         
         let _ = game.updatePlayerTwoScore()
         let _ = game.updatePlayerTwoScore()
@@ -79,7 +69,6 @@ class GameTests: XCTestCase {
     }
     
     func test_PlayerOneScoreAdvantage_WhenPlayerOneScorePlayerTwoScoreAreSame() {
-        let game = Game()
         
         let _ = game.updatePlayerTwoScore()
         let _ = game.updatePlayerTwoScore()
@@ -96,7 +85,6 @@ class GameTests: XCTestCase {
     }
     
     func test_PlayerOneWins_WhenPlayerOneScoreIsOnAdvantage() {
-        let game = Game()
         
         let _ = game.updatePlayerTwoScore()
         let _ = game.updatePlayerTwoScore()
@@ -110,6 +98,33 @@ class GameTests: XCTestCase {
         let originalScore = game.updatePlayerOneScore()
         
         let expectedScore = "PlayerOne Wins Game!!!"
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
+    func test_PlayerTwoScoresFirstPoint() {
+        
+        let originalScore = game.updatePlayerTwoScore()
+        
+        let expectedScore = Score.fifteen.rawValue
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
+    func test_PlayerTwoScoresSecondPoint() {
+        
+        let _ = game.updatePlayerTwoScore()
+        let originalScore = game.updatePlayerTwoScore()
+        
+        let expectedScore = Score.thirty.rawValue
+        XCTAssertEqual(originalScore, expectedScore)
+    }
+    
+    func test_PlayerTwoScoresThirdPoint() {
+        
+        let _ = game.updatePlayerTwoScore()
+        let _ = game.updatePlayerTwoScore()
+        let originalScore = game.updatePlayerTwoScore()
+        
+        let expectedScore = Score.forty.rawValue
         XCTAssertEqual(originalScore, expectedScore)
     }
     
