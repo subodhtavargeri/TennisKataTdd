@@ -11,7 +11,7 @@ class TennisGamePresenterTests: XCTestCase {
     }
     
     func test_WhenPresenterIsLoaded_ViewTitleIsSet() {
-        presenter?.displayViewTitle()
+        presenter?.loadPresenter()
         
         let expectation = "Tennis Scoreboard"
         XCTAssertEqual(view.title,expectation)
@@ -139,5 +139,23 @@ class TennisGamePresenterTests: XCTestCase {
         
         let expectation = "Deuce"
         XCTAssertEqual(playerOneScore,expectation)
+    }
+    
+    func test_WhenPlayerOneAndPlayerTwo_AreOnFourtyPointEach_PlayerTwoIsShownAsDuce() {
+        let game = GameSpy()
+        let presenter = TennisGamePresenter(view: view, game: game)
+        
+        for _ in 1...3 {
+            _ = presenter.playerOneWinsPoint()
+        }
+        
+        var playerTwoScore:String?
+        
+        for _ in 1...3 {
+            playerTwoScore = presenter.playerTwoWinsPoint()
+        }
+        
+        let expectation = "Deuce"
+        XCTAssertEqual(playerTwoScore,expectation)
     }
 }

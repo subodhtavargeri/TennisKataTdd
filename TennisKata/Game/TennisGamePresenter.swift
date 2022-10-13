@@ -1,6 +1,7 @@
 
 protocol TennisGamePresenterProtocol {
-    func displayViewTitle()
+    func loadPresenter()
+    
 }
 
 class TennisGamePresenter: TennisGamePresenterProtocol {
@@ -14,7 +15,11 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
         self.game = game
     }
     
-    func displayViewTitle() {
+    func loadPresenter() {
+        displayViewTitle()
+    }
+    
+    private func displayViewTitle() {
         view.displayViewTitle(title: "Tennis Scoreboard")
     }
     
@@ -33,6 +38,7 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
             if(checkForDucePoint()) {
                 return "Deuce"
             }
+            
             return score.rawValue
         }
         return "PlayerOne Wins Game!!!"
@@ -48,6 +54,11 @@ class TennisGamePresenter: TennisGamePresenterProtocol {
     func playerTwoWinsPoint()-> String {
         if game.getPlayerTwoCurrentScore() != Score.forty {
             let score = game.getPlayerTwoNewScore()
+            
+            if(checkForDucePoint()) {
+                return "Deuce"
+            }
+            
             return score.rawValue
         }
         return "PlayerTwo Wins Game!!!"
